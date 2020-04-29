@@ -1,0 +1,54 @@
+<div fxLayout="row wrap">
+
+    <div fxLayout="row" fxLayoutGap="5px" fxFlex="100">
+        <mat-form-field fxFlex="25">
+            <input matInput placeholder="CPF" [value]="diploma.cpf">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Nome do aluno" [value]="diploma.nome">
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxFlex="100" fxLayoutGap="5px">
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Código do diploma" [value]="diploma.diplomaId">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Código do curso" [value]="diploma.codEmecCurso">
+        </mat-form-field>
+    </div>
+
+
+    <div fxLayout="row" fxFlex="100" fxLayoutGap="5px">
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Código da Instituição" [value]="diploma.codEmecIes">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Código de expedição" [value]="diploma.codExp">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxFlex="100" fxLayoutGap="5px">
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Código de registro" [value]="diploma.codReg">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Data de ingreso" [value]="diploma.dataIngresso | date:'dd/MM/yyyy'">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxFlex="100" fxLayoutGap="5px">
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Data de conclusão" [value]="diploma.dataConclusao | date:'dd/MM/yyyy'">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Data de expedição" [value]="diploma.dataExpDiploma | date:'dd/MM/yyyy'">
+        </mat-form-field>
+    </div>
+    <div fxLayout="row" fxFlex="100" fxLayoutGap="5px">
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Data de registro" [value]="diploma.dataRegDiploma | date:'dd/MM/yyyy'">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Data de publicação" [value]="diploma.dataPubDiploma | date:'dd/MM/yyyy'">
+        </mat-form-field>
+    </div>
+</div>

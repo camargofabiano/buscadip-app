@@ -11,7 +11,7 @@ export class DiplomaService {
 
   constructor(private http: HttpClient) { }
 
-  public getDiplomaById(id) {
+  public getDiplomaById(id: string) {
     return this.http.get<Diploma>(`${this.url}diplomas/` + id);
   }
 }
