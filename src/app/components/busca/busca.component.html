@@ -1,29 +1,34 @@
-<mat-card class="example-form mx-auto">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Consulta Diploma</mat-card-title>
-    <mat-card-subtitle>Centro Universitário do Araguaia</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
+<div class="fullbg">
 
-    <p>ffa544545</p>
+  <mat-card class="example-form mx-auto">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Consulta Diploma</mat-card-title>
+      <mat-card-subtitle>Consulte diplomas emitidos pelo Centro Universitário do Araguaia</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxLayoutAlign="center center">
+        <img src="/assets/images/univar-logo.png" style="max-width: 30%; max-height: 30%;">
+      </div>
+      <!-- <p>ffa544545</p> -->
 
-    <mat-form-field appearance="outline" class="example-full-width">
-      <mat-label>Código do diploma</mat-label>
-      <input matInput placeholder="Ex. 46456fsdf" #search>
-      <mat-icon matSuffix>school</mat-icon>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="example-full-width" *ngIf="!searchSuccess">
+        <mat-label>Código do diploma</mat-label>
+        <input matInput placeholder="Ex. 46456fsdf" [(ngModel)]="busca" #search>
+        <mat-icon matSuffix>school</mat-icon>
+      </mat-form-field>
 
-    <div *ngIf="mensagem" class="alert alert-warning">
-      {{mensagem}}
-    </div>
+      <div *ngIf="mensagem" class="alert alert-warning">
+        {{mensagem}}
+      </div>
 
-    <div *ngIf="diploma" class="container-sm mx-auto">
-      <app-diploma [diploma]="diploma"></app-diploma>
-    </div>
+      <div *ngIf="diploma">
+        <app-diploma [diploma]="diploma"></app-diploma>
+      </div>
 
-    <button mat-raised-button color="primary" *ngIf="!searchSuccess" mat-button
-      (click)="search.value === '' ? openSnackBar('Favor digitar um código','Ok') : searchDiploma(search.value)">Buscar</button>
-    <button mat-raised-button color="primary" *ngIf="searchSuccess" mat-button>Buscar outro</button>
-  </mat-card-content>
-</mat-card>
+      <button mat-raised-button color="primary" *ngIf="!searchSuccess"
+        (click)="busca === '' ? openSnackBar('Favor digitar um código','Ok') : searchDiploma(busca)">Buscar</button>
+      <button mat-raised-button color="primary" *ngIf="searchSuccess" (click)="buscaOutro()">Buscar outro</button>
+    </mat-card-content>
+  </mat-card>
+</div>
