@@ -22,6 +22,7 @@ export class BuscaComponent implements OnInit {
     private diplomaService: DiplomaService) { }
 
   ngOnInit(): void {
+    this.focusSearchBar();
   }
 
   searchDiploma(id: string) {
@@ -37,6 +38,7 @@ export class BuscaComponent implements OnInit {
           } else {
             this.searchSuccess = false;
             this.mensagem = 'Diploma não encontrado em nossa base.';
+            this.focusSearchBar();
           }
         }, e => console.log(e));
     }
@@ -45,6 +47,10 @@ export class BuscaComponent implements OnInit {
   buscaOutro() {
     this.searchSuccess = false;
     this.diploma = null;
+    this.focusSearchBar();
+  }
+
+  focusSearchBar() {
     setTimeout(() => {
       this.searchElement.nativeElement.focus();
     }, 0);
@@ -54,6 +60,7 @@ export class BuscaComponent implements OnInit {
     this.snackBar.open(message, action, {
       duration: 2000,
     });
+    this.focusSearchBar();
   }
 
 }

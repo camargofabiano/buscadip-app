@@ -8,13 +8,18 @@
     </mat-card-header>
     <mat-card-content>
       <div fxLayoutAlign="center center">
-        <img src="/assets/images/univar-logo.png" style="max-width: 30%; max-height: 30%;">
+
+        <a href="http://univar.edu.br" target="_blank" rel="noopener noreferrer" class="mx-auto">
+          <img src="/assets/images/univar-logo.png" class="logo">
+        </a>
+
       </div>
       <!-- <p>ffa544545</p> -->
 
       <mat-form-field appearance="outline" class="example-full-width" *ngIf="!searchSuccess">
         <mat-label>Código do diploma</mat-label>
-        <input matInput placeholder="Ex. 46456fsdf" [(ngModel)]="busca" #search>
+        <input matInput placeholder="Ex. 46456fsdf" [(ngModel)]="busca" #search
+          (keyup.enter)="busca === '' ? openSnackBar('Favor digitar um código','Ok') : searchDiploma(busca)">
         <mat-icon matSuffix>school</mat-icon>
       </mat-form-field>
 

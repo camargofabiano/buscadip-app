@@ -8,10 +8,16 @@
     max-width: 400px;
     margin: 0 auto;
   }
+
+  .logo {
+    max-width: 15em;
+  }
   
   .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+    background-image: url('/assets/images/univar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
   }
 
   .example-form {
@@ -21,5 +27,6 @@
   }
   
   .example-full-width {
+    margin-top: 1em;
     width: 100%;
   }
