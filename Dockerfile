@@ -1,3 +1,6 @@
+# docker build --rm -t app-buscadip .
+# docker run --name app-buscadip -d -p 8080:80 app-buscadip
+
 FROM node:12.16-alpine AS build
 WORKDIR /app
 COPY package.json ./

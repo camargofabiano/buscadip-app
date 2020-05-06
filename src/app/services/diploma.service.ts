@@ -7,7 +7,7 @@ import { Diploma } from '../models/diploma.model';
 })
 export class DiplomaService {
 
-  public url = 'https://localhost:5331/api/v1/';
+  public url = 'http://localhost:5331/api/v1/';
 
   constructor(private http: HttpClient) { }
 
