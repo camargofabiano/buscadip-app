@@ -27,7 +27,10 @@
         {{mensagem}}
       </div>
 
-      <div *ngIf="diploma">
+      <mat-spinner class="mx-auto" *ngIf="loading"></mat-spinner>
+
+
+      <div *ngIf="!loading && diploma">
         <app-diploma [diploma]="diploma"></app-diploma>
       </div>
 

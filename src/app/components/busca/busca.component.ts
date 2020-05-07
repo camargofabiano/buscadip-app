@@ -14,6 +14,7 @@ export class BuscaComponent implements OnInit {
   searchSuccess = false;
   busca = '';
   mensagem = '';
+  loading = false;
 
   @ViewChild('search') searchElement: ElementRef;
 
@@ -26,8 +27,8 @@ export class BuscaComponent implements OnInit {
   }
 
   searchDiploma(id: string) {
+    this.loading = true;
     if (id) {
-
       this.diplomaService.getDiplomaById(id)
         .subscribe(x => {
           if (x) {
@@ -35,9 +36,11 @@ export class BuscaComponent implements OnInit {
             this.searchSuccess = true;
             this.mensagem = '';
             this.busca = '';
+            this.loading = false;
           } else {
             this.searchSuccess = false;
             this.mensagem = 'Diploma não encontrado em nossa base.';
+            this.loading = false;
             this.focusSearchBar();
           }
         }, e => console.log(e));
