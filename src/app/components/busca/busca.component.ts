@@ -28,8 +28,10 @@ export class BuscaComponent implements OnInit {
 
   searchDiploma(id: string) {
     this.loading = true;
+    const toRemove = new RegExp(/[^0-9A-F]+/gi);
+    const data = id.replace(toRemove, '');
     if (id) {
-      this.diplomaService.getDiplomaById(id)
+      this.diplomaService.getDiplomaById(data)
         .subscribe(x => {
           if (x) {
             this.diploma = x;
